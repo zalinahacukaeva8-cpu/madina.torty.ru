@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Madina Torty</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav>
+    <a href="#home">Главная</a>
+    <a href="#menu">Меню</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contacts">Контакты</a>
+</nav>
+
+
+<header id="home">
+
+<img src="logo.png" class="logo">
+
+<h1>Madina Torty</h1>
+
+<p class="domain">
+madina.torty.com
+</p>
+
+<a class="order-btn"
+href="https://wa.me/79637064121"
+target="_blank">
+💬 Заказать в WhatsApp
+</a>
+
+</header>
+
+
+<section id="menu">
+
+<h2 class="donut-title">
+ Пончики
+</h2>
+
+
+<div class="cards">
+
+<div class="card">
+Шоколадный пончик<br>
+100 ₽
+</div>
+
+<div class="card">
+Клубничный пончик<br>
+100 ₽
+</div>
+
+<div class="card">
+Манговый пончик<br>
+100 ₽
+</div>
+
+<div class="card">
+Фисташковый пончик<br>
+100 ₽
+</div>
+
+</div>
+
+
+<h2 class="dessert-title">
+ Корпусные десерты
+</h2>
+
+
+<div class="cards">
+
+<div class="card">Малина<br>300 ₽</div>
+<div class="card">Кофе<br>300 ₽</div>
+<div class="card">Манго<br>300 ₽</div>
+<div class="card">Голубика<br>250 ₽</div>
+<div class="card">Банан<br>150 ₽</div>
+<div class="card">Клубника<br>150 ₽</div>
+<div class="card">Лимон<br>150 ₽</div>
+
+</div>
+
+</section>
+
+
+<section id="gallery">
+
+<h2>
+                                   Галерея
+</h2>
+
+<div class="gallery">
+
+<img src="gallery1.png">
+
+<img src="gallery2.jpg">
+
+</div>
+
+</section>
+
+
+<section id="reviews">
+
+<h2>
+⭐ Отзывы
+</h2>
+
+
+<input
+type="text"
+id="name"
+placeholder="Ваше имя (необязательно)"
+>
+
+
+<textarea
+id="reviewText"
+placeholder="Ваш отзыв">
+</textarea>
+
+
+<div class="stars">
+
+<span onclick="rate(1)">☆</span>
+<span onclick="rate(2)">☆</span>
+<span onclick="rate(3)">☆</span>
+<span onclick="rate(4)">☆</span>
+<span onclick="rate(5)">☆</span>
+
+</div>
+
+
+<button onclick="addReview()">
+Оставить отзыв
+</button>
+
+
+<button onclick="adminLogin()">
+🔐 Владелец
+</button>
+
+
+<div id="reviewList">
+</div>
+
+
+</section>
+
+
+<section id="contacts">
+
+<h2>
+Контакты
+</h2>
+
+
+<p>
+📞 +7 963 706 41 21
+</p>
+
+
+<p>
+
+<a href="https://wa.me/79637064121"
+target="_blank">
+
+💬 WhatsApp
+
+</a>
+
+</p>
+
+
+<p>
+📍 Чеченская Республика,
+с. Знаменское
+</p>
+
+
+<p>
+
+<a href="https://instagram.com/_madishka_054"
+target="_blank">
+
+📷 _madishka_054
+
+</a>
+
+</p>
+
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
