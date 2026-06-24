@@ -102,12 +102,26 @@ function adminLogin() {
             "Вы вошли как владелец 👑"
         );
 
+document.getElementById("adminPanelButton")
+.style.display = "block";
+
     } else {
 
         alert(
             "Неверный пароль ❌"
         );
 
+    }
+
+}
+function toggleAdminPanel() {
+
+    let panel = document.getElementById("adminPanel");
+
+    if (panel.style.display === "none") {
+        panel.style.display = "block";
+    } else {
+        panel.style.display = "none";
     }
 
 }
