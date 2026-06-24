@@ -142,13 +142,42 @@ section {
 
 .stars {
     text-align: center;
-    font-size: 45px;
+    font-size: 50px;
     cursor: pointer;
-    color: #ccc;
+    user-select: none;
+}
+
+.stars span {
+    color: #ddd;
+    transition: 
+        transform 0.25s ease,
+        color 0.25s ease,
+        text-shadow 0.25s ease;
+    display: inline-block;
+}
+
+.stars span:hover {
+    transform: scale(1.25) rotate(12deg);
 }
 
 .stars .active {
-    color: gold;
+    color: #FFD700;
+    text-shadow: 0 0 12px #FFD700;
+    animation: starPop 0.35s ease;
+}
+
+@keyframes starPop {
+    0% {
+        transform: scale(0.5);
+    }
+
+    60% {
+        transform: scale(1.35);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 button {
