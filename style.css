@@ -182,3 +182,27 @@ button {
     color: #177a3e;
     text-decoration: none;
 }
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    width: 60px;
+    height: 60px;
+    background: white;
+    color: #3a8f5b;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.15) rotate(8deg);
+}
