@@ -193,7 +193,6 @@ button {
     width: 60px;
     height: 60px;
     background: white;
-    color: #3a8f5b;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -205,4 +204,21 @@ button {
 
 .social-icons a:hover {
     transform: scale(1.15) rotate(8deg);
+}
+.fa-whatsapp {
+    color: #25D366;
+}
+
+.fa-instagram {
+    background: linear-gradient(
+        45deg,
+        #f09433,
+        #e6683c,
+        #dc2743,
+        #cc2366,
+        #bc1888
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
