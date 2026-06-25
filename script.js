@@ -79,6 +79,16 @@ function addReview() {
     document.getElementById("reviewList")
     .appendChild(review);
 
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+reviews.push({
+    name: name,
+    text: text,
+    stars: selectedStars
+});
+
+localStorage.setItem("reviews", JSON.stringify(reviews));
+
 
     document.getElementById("name").value = "";
     document.getElementById("reviewText").value = "";
