@@ -1,3 +1,13 @@
+// 📊 СЧЁТЧИК ПОСЕЩЕНИЙ
+let visits = localStorage.getItem("visits");
+
+if (!visits) {
+    visits = 0;
+}
+
+visits = Number(visits) + 1;
+localStorage.setItem("visits", visits);
+
 let selectedStars = 0;
 let isAdmin = false;
 
@@ -124,4 +134,15 @@ function toggleAdminPanel() {
         panel.style.display = "none";
     }
 
+}
+
+function showStats() {
+    let visits = localStorage.getItem("visits") || 0;
+    let reviews = document.querySelectorAll("#reviewList div").length;
+
+    alert(
+        "📊 СТАТИСТИКА\n\n" +
+        "👀 Посещения: " + visits + "\n" +
+        "💬 Отзывы: " + reviews
+    );
 }
