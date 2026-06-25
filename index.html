@@ -224,6 +224,43 @@ placeholder="Ваш отзыв">
     </button>
 </div>
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCSu8YXD...",
+    authDomain: "madina-torty.firebaseapp.com",
+    projectId: "madina-torty",
+    storageBucket: "madina-torty.firebasestorage.app",
+    messagingSenderId: "323694649487",
+    appId: "1:323694649487:web:08a7fe2731b9f1e68ad0fa"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // ⭐ твоя кнопка "Оставить отзыв"
+  window.addReview = async function () {
+    const name = document.getElementById("name").value;
+    const text = document.getElementById("reviewText").value;
+
+    try {
+      await addDoc(collection(db, "reviews"), {
+        name: name || "Аноним",
+        text: text,
+        time: Date.now()
+      });
+
+      alert("Отзыв сохранён!");
+      document.getElementById("reviewText").value = "";
+    } catch (e) {
+      console.log(e);
+      alert("Ошибка сохранения 😢");
+    }
+  };
+</script>
+
 </body>
 
 </html>
