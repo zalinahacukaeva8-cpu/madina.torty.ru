@@ -156,3 +156,21 @@ function showStats() {
         "💬 Отзывы: " + reviews
     );
 }
+
+window.onload = function() {
+    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+    for (let r of reviews) {
+        let review = document.createElement("div");
+
+        review.innerHTML = `
+            <h3>${r.name}</h3>
+            <p style="color:gold; font-size:25px;">
+                ${"★".repeat(r.stars)}
+            </p>
+            <p>${r.text}</p>
+        `;
+
+        document.getElementById("reviewList").appendChild(review);
+    }
+};
