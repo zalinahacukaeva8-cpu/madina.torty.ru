@@ -224,60 +224,7 @@ placeholder="Ваш отзыв">
     </button>
 </div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCSu8YXD...",
-  authDomain: "madina-torty.firebaseapp.com",
-  projectId: "madina-torty",
-  storageBucket: "madina-torty.firebasestorage.app",
-  messagingSenderId: "323694649487",
-  appId: "1:323694649487:web:08a7fe2731b9f1e68ad0fa"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const list = document.getElementById("reviewList");
-
-// 🔥 показать все отзывы
-async function loadReviews() {
-  const snap = await getDocs(collection(db, "reviews"));
-
-  list.innerHTML = "";
-
-  snap.forEach((doc) => {
-    const d = doc.data();
-
-    list.innerHTML += `
-      <div style="border:1px solid #ddd; padding:10px; margin:5px 0;">
-        <b>${d.name}</b><br>
-        ${d.text}
-      </div>
-    `;
-  });
-}
-
-// 💾 добавить отзыв
-window.addReview = async function () {
-  const name = document.getElementById("name").value;
-  const text = document.getElementById("reviewText").value;
-
-  await addDoc(collection(db, "reviews"), {
-    name: name || "Аноним",
-    text: text
-  });
-
-  document.getElementById("reviewText").value = "";
-
-  loadReviews(); // обновить экран
-};
-
-// 🚀 загрузка при открытии сайта
-loadReviews();
-</script>
 </body>
 
 </html>
