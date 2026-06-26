@@ -1,3 +1,18 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyCSyUe8XD2FUh1YCp8uNaouBtZzi1Ail7I",
+  authDomain: "madina-torty.firebaseapp.com",
+  projectId: "madina-torty",
+  storageBucket: "madina-torty.firebasestorage.app",
+  messagingSenderId: "323694649487",
+  appId: "1:323694649487:web:08a7fe2731b9f1e68ad0fa",
+  measurementId: "G-TSV4XY8TY2"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 // 📊 СЧЁТЧИК ПОСЕЩЕНИЙ
 let visits = localStorage.getItem("visits");
 
@@ -31,7 +46,7 @@ function rate(number) {
 
 
 // Добавление отзыва
-function addReview() {
+async function addReview() {
 
     let name = document.getElementById("name").value.trim();
     let text = document.getElementById("reviewText").value.trim();
@@ -79,16 +94,15 @@ function addReview() {
     document.getElementById("reviewList")
     .appendChild(review);
 
-let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-reviews.push({
+await addDoc(
+  collection(db, "Reviews"),
+  {
     name: name,
     text: text,
-    stars: selectedStars
-});
-
-localStorage.setItem("reviews", JSON.stringify(reviews));
-
+    stars: selectedStars,
+    date: Date.now()
+  }
+);
 
     document.getElementById("name").value = "";
     document.getElementById("reviewText").value = "";
@@ -157,20 +171,29 @@ function showStats() {
     );
 }
 
-window.onload = function() {
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+window.onload = async function () {
 
-    for (let r of reviews) {
-        let review = document.createElement("div");
+  const snapshot =
+    await getDocs(collection(db, "Reviews"));
 
-        review.innerHTML = `
-            <h3>${r.name}</h3>
-            <p style="color:gold; font-size:25px;">
-                ${"★".repeat(r.stars)}
-            </p>
-            <p>${r.text}</p>
-        `;
+  snapshot.forEach((doc) => {
 
-        document.getElementById("reviewList").appendChild(review);
-    }
+    const r = doc.data();
+
+    let review =
+      document.createElement("div");
+
+    review.innerHTML = `
+      <h3>${r.name}</h3>
+      <p style="color:gold;font-size:25px;">
+        ${"★".repeat(r.stars)}
+      </p>
+      <p>${r.text}</p>
+    `;
+
+    document
+      .getElementById("reviewList")
+      .appendChild(review);
+  });
+
 };
