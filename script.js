@@ -203,3 +203,9 @@ window.onload = async function () {
   });
 
 };
+
+window.rate = rate;
+window.addReview = addReview;
+window.adminLogin = adminLogin;
+window.toggleAdminPanel = toggleAdminPanel;
+window.showStats = showStats;
