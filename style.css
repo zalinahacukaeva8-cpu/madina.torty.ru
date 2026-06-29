@@ -309,3 +309,55 @@ button {
     width: 100%;
     margin: 10px 0;
 }
+
+/* Исправления для телефонов */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.stars span {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+        margin: 10px auto;
+    }
+
+    .logo {
+        max-width: 220px;
+        width: 80%;
+        height: auto;
+    }
+}
