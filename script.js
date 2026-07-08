@@ -210,13 +210,11 @@ window.adminLogin = adminLogin;
 window.toggleAdminPanel = toggleAdminPanel;
 window.showStats = showStats;
 
-// Экран загрузки
+window.addEventListener("DOMContentLoaded", () => {
 
-window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
 
     setTimeout(() => {
-
-        const loader = document.getElementById("loader");
 
         loader.classList.add("loader-hide");
 
@@ -224,8 +222,9 @@ window.addEventListener("load", () => {
 
             loader.remove();
 
-        },800);
+        },700);
 
-    },2000);
+    },2200);
 
 });
+

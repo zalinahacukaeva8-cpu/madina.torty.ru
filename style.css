@@ -381,72 +381,135 @@ img {
     max-width: 100%;
 }
 
-/* Экран загрузки */
+/* ===========================
+   Экран загрузки
+=========================== */
 
-#loader {
+#loader{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100dvh;
 
-    position: fixed;
+    background:linear-gradient(180deg,#fff5f8,#ffe6f0,#ffffff);
 
-    top: 0;
-    left: 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    width: 100%;
-    height: 100%;
+    z-index:999999;
 
-    background: linear-gradient(180deg,#fff5f8,#ffe6f0,#ffffff);
+    transition:opacity .7s ease, visibility .7s ease;
+}
 
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    z-index: 99999;
-
-    transition: opacity .8s;
+.loader-content{
+    text-align:center;
+    animation:fadeIn .8s ease;
 }
 
 .loader-logo{
 
     width:170px;
+    height:170px;
 
     border-radius:50%;
 
-    box-shadow:0 0 25px pink;
+    box-shadow:0 0 30px pink;
 
-    animation: logoFloat 2s ease infinite;
+    animation:logoJump 1.8s infinite;
 }
 
-#loader p{
+.loader-content h1{
 
-    margin-top:15px;
+    margin-top:20px;
 
-    color:#b85a7f;
+    font-family:"Pacifico",cursive;
 
-    font-size:20px;
+    color:#d63d78;
+
+    font-size:42px;
 }
 
-@keyframes logoFloat{
+.loader-content p{
 
-    0%{
-        transform:scale(1);
-    }
+    color:#b86586;
 
-    50%{
-        transform:scale(1.08);
-    }
+    margin-top:10px;
 
-    100%{
-        transform:scale(1);
-    }
+    margin-bottom:25px;
+}
 
+.loader-bar{
+
+    width:230px;
+
+    height:8px;
+
+    background:#ffd6e6;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin:auto;
+}
+
+.loader-progress{
+
+    width:0%;
+
+    height:100%;
+
+    background:#ff5b99;
+
+    animation:loading 2s linear forwards;
 }
 
 .loader-hide{
 
     opacity:0;
 
-    pointer-events:none;
+    visibility:hidden;
+}
+
+@keyframes loading{
+
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes logoJump{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
 }
