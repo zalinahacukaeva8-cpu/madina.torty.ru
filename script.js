@@ -209,3 +209,23 @@ window.addReview = addReview;
 window.adminLogin = adminLogin;
 window.toggleAdminPanel = toggleAdminPanel;
 window.showStats = showStats;
+
+// Экран загрузки
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        const loader = document.getElementById("loader");
+
+        loader.classList.add("loader-hide");
+
+        setTimeout(() => {
+
+            loader.remove();
+
+        },800);
+
+    },2000);
+
+});
