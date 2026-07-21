@@ -59,13 +59,13 @@ async function addReview() {
 
 
     if (text === "") {
-        alert("Напишите отзыв ❤️");
+       showToast("❤️ Напишите отзыв","info");
         return;
     }
 
 
     if (selectedStars === 0) {
-        alert("Выберите оценку ⭐");
+      showToast("⭐ Выберите оценку","info");
         return;
     }
 
@@ -138,8 +138,7 @@ function adminLogin() {
 
         isAdmin = true;
 
-        alert(
-            "Вы вошли как владелец 👑"
+       showToast("👑 Вы вошли как владелец","success");
         );
 
 document.getElementById("adminPanelButton")
@@ -147,8 +146,7 @@ document.getElementById("adminPanelButton")
 
     } else {
 
-        alert(
-            "Неверный пароль ❌"
+       showToast("❌ Неверный пароль","error");
         );
 
     }
@@ -252,3 +250,23 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
 });
+
+function showToast(text,type="success"){
+
+    const toast=document.getElementById("toast");
+
+    toast.className="";
+
+    toast.classList.add(type);
+
+    toast.classList.add("show");
+
+    toast.innerHTML=text;
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },3000);
+
+}
