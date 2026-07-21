@@ -577,3 +577,62 @@ pointer-events: none;
     }
 
 }
+
+/* ===== Уведомления ===== */
+
+#toast{
+
+    position:fixed;
+
+    top:20px;
+    right:20px;
+
+    min-width:280px;
+    max-width:350px;
+
+    padding:18px 22px;
+
+    border-radius:18px;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    opacity:0;
+
+    transform:translateX(120%);
+
+    transition:.4s;
+
+    z-index:999999;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+#toast.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+#toast.success{
+
+    background:#36c96b;
+
+}
+
+#toast.error{
+
+    background:#ff5b5b;
+
+}
+
+#toast.info{
+
+    background:#5b8cff;
+
+}
