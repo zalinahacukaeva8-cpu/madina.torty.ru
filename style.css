@@ -181,7 +181,7 @@ section {
     }
 }
 
-button {
+#reviews button {
     display: block;
     margin: 20px auto;
     background: #ff5b99;
@@ -538,8 +538,11 @@ img {
 
     cursor: pointer;
 
-    display: none;
-
+   display: flex;
+justify-content: center;
+align-items: center;
+opacity: 0;
+pointer-events: none;
     box-shadow: 0 8px 20px rgba(255,91,153,.35);
 
     transition: .3s;
