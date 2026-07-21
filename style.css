@@ -513,3 +513,64 @@ img {
     }
 
 }
+
+/* Кнопка "Наверх" */
+
+#topBtn {
+
+    position: fixed;
+
+    bottom: 25px;
+    right: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ff5b99;
+
+    color: white;
+
+    font-size: 26px;
+
+    cursor: pointer;
+
+    display: none;
+
+    box-shadow: 0 8px 20px rgba(255,91,153,.35);
+
+    transition: .3s;
+
+    z-index: 9999;
+}
+
+#topBtn:hover{
+
+    transform: scale(1.12);
+
+    background:#ff3b86;
+}
+
+#topBtn.show{
+
+    display:block;
+
+    animation:topAppear .35s ease;
+}
+
+@keyframes topAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
